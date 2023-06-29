@@ -1,9 +1,9 @@
 package dev.etech.automation_web.funcs;
 
 import dev.etech.automation_web.commons.BaseTest;
-import dev.etech.automation_web.pages.HomePage;
 import dev.etech.automation_web.pages.LoginPage;
-import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginFunc extends BaseTest {
 
@@ -21,6 +21,11 @@ public class LoginFunc extends BaseTest {
         driver.findElement(loginPage.getEmail()).sendKeys(email);
         driver.findElement(loginPage.getPassaword()).sendKeys(senha);
         driver.findElement(loginPage.getEntrarLogin()).click();
+    }
+
+    public String validarLogout(){
+        String textoEmail = driver.findElement(loginPage.getEmailTexto()).getText();
+        return textoEmail;
     }
 
 

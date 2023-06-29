@@ -8,6 +8,7 @@ public class LoginPage {
     By email = By.id("email");
     By passaword = By.id("password");
     By entrarLogin = By.xpath("//button[@class='button btn-filled']");
+    By emailTexto = By.xpath("//label[@for='email']");
 
 
     public By getQueroCriarConta() {
@@ -24,5 +25,9 @@ public class LoginPage {
 
     public By getEntrarLogin() {
         return entrarLogin;
+    }
+
+    public By getEmailTexto() {
+        return emailTexto;
     }
 }
