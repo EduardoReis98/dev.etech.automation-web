@@ -4,6 +4,7 @@ import dev.etech.automation_web.funcs.CadastrarFilmeFunc;
 import dev.etech.automation_web.funcs.HomeFunc;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
+import org.junit.Assert;
 
 
 public class CadastrarFilmeStep {
@@ -20,6 +21,7 @@ public class CadastrarFilmeStep {
 
     @Então("deve visualizar na tela {string}")
     public void visualizarFilmeCriadoSucesso(String mensagem){
+        Assert.assertEquals(mensagem,homeFunc.validarCadastroFilme());
 
     }
 
