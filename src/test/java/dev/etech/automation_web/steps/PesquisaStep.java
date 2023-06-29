@@ -1,17 +1,11 @@
 package dev.etech.automation_web.steps;
 
 import dev.etech.automation_web.funcs.HomeFunc;
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.es.E;
-import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
 
-import java.util.List;
-import java.util.Map;
-
-public class SubmenuStep {
+public class PesquisaStep {
 
     HomeFunc homeFunc = new HomeFunc();
 

@@ -1,7 +1,9 @@
 package dev.etech.automation_web.funcs;
 
 import dev.etech.automation_web.commons.BaseTest;
+import dev.etech.automation_web.pages.FilmesPage;
 import dev.etech.automation_web.pages.HomePage;
+import dev.etech.automation_web.pages.SeriesPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,6 +13,8 @@ import java.util.List;
 public class HomeFunc extends BaseTest {
 
     HomePage homePage = new HomePage();
+    FilmesPage filmesPage = new FilmesPage();
+    SeriesPage seriesPage = new SeriesPage();
 
     public String validarLogin(){
         return driver.findElement(homePage.getTittleUsusario()).getText();
@@ -44,12 +48,12 @@ public class HomeFunc extends BaseTest {
                 driver.findElement(homePage.getHomeSubmenu()).click();
                 break;
             case "FILMES":
-                wait.until(ExpectedConditions.visibilityOfElementLocated(homePage.getFilmesSubmenu()));
-                driver.findElement(homePage.getFilmesSubmenu()).click();
+                wait.until(ExpectedConditions.visibilityOfElementLocated(filmesPage.getFilmesSubmenu()));
+                driver.findElement(filmesPage.getFilmesSubmenu()).click();
                 break;
             case "SERIES":
-                wait.until(ExpectedConditions.visibilityOfElementLocated(homePage.getSeriesSubmenu()));
-                driver.findElement(homePage.getSeriesSubmenu()).click();
+                wait.until(ExpectedConditions.visibilityOfElementLocated(seriesPage.getSeriesSubmenu()));
+                driver.findElement(seriesPage.getSeriesSubmenu()).click();
                 break;
             default:
                 System.out.println("SubMenu não existe" + submenu);
@@ -68,12 +72,12 @@ public class HomeFunc extends BaseTest {
                 validarNome = driver.findElement(homePage.getNomeHomeSubmenu()).getText();
                 break;
             case "FILMES":
-                wait.until(ExpectedConditions.visibilityOfElementLocated(homePage.getNomeFilmesSubmenu()));
-                validarNome = driver.findElement(homePage.getNomeFilmesSubmenu()).getText();
+                wait.until(ExpectedConditions.visibilityOfElementLocated(filmesPage.getNomeFilmesSubmenu()));
+                validarNome = driver.findElement(filmesPage.getNomeFilmesSubmenu()).getText();
                 break;
             case "SERIES":
-                wait.until(ExpectedConditions.visibilityOfElementLocated(homePage.getNomeSeriesSubmenu()));
-                validarNome = driver.findElement(homePage.getNomeSeriesSubmenu()).getText();
+                wait.until(ExpectedConditions.visibilityOfElementLocated(seriesPage.getNomeSeriesSubmenu()));
+                validarNome = driver.findElement(seriesPage.getNomeSeriesSubmenu()).getText();
                 break;
             default:
                 System.out.println("O titulo da pagina não existe" + nomeSubmenu);
@@ -95,7 +99,7 @@ public class HomeFunc extends BaseTest {
                 break;
             case "FILMES":
                 wait.until(ExpectedConditions.invisibilityOfElementLocated(homePage.getLoading()));
-                driver.findElement(homePage.getPesquisaFilmes()).sendKeys(pesquisa);
+                driver.findElement(filmesPage.getPesquisaFilmes()).sendKeys(pesquisa);
                 driver.findElement(homePage.getPesquisaButon()).click();
                 break;
             case "SERIES":
@@ -114,6 +118,12 @@ public class HomeFunc extends BaseTest {
         String textoEscrito = driver.findElement(homePage.getTextoTituloPesquisa()).getTagName();
         System.out.println(textoEscrito);
         return textoEscrito;
+    }
+
+    public void selecionarBotaoSair(){
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(homePage.getLoading()));
+        driver.findElement(homePage.getBotãoSair()).click();
     }
 }
 

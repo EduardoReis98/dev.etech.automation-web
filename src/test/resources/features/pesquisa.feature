@@ -5,9 +5,9 @@
 #version: 1.0
 
 @smoke_test @teste_pesquisa
-Funcionalidade: uso do submenu
+Funcionalidade: uso da pesquisa
   Com essa funcionalidade iremos realizar
-  a validação do uso do submenu
+  a validação do uso da pesquisa
 
   Contexto: login realizado
     Dado estiver na tela de login
@@ -17,12 +17,12 @@ Funcionalidade: uso do submenu
 
   Esquema do Cenário: validar o uso do submenu
     Quando selecionar o <genero> no submenu
-    Então deve visualizar o <genero-selecionado> do <genero>
+    Então deve visualizar o <nome-genero> do <genero>
     Quando inserir "vingadores" no campo de pesquisa do <genero>
     Então  deve visualizar uma imagem na tela da pesquisa
 
     Exemplos:
-      | genero   | genero-selecionado |
-      | "Home"   | "Filmes"           |
-      | "Filmes" | "Todos os Filmes"  |
-      | "Series" | "Todos as Séries"  |
+      | genero   | nome-genero       |
+      | "Home"   | "Filmes"          |
+      | "Filmes" | "Todos os Filmes" |
+      | "Series" | "Todos as Séries" |
