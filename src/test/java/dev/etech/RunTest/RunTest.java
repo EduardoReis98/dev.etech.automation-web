@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:reports/cucumber.html"},
         features = {"./src/test/resources/features"},
         glue = {"dev.etech.automation_web.steps","dev.etech.automation_web.configuration"},
-        tags = "@teste_cadastro_filmes")
+        tags = "@teste_pesquisa")
 
 public class RunTest {
 }
